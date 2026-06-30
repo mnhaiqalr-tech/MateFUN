@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ms" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MatikFun! – Wang & Masa Tahun 5</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══ FLOATING CONTROLS ══ -->
+<div class="float-controls">
+  <button class="float-btn home-btn" onclick="goHome()" title="Laman Utama">🏠</button>
+  <button class="float-btn theme-btn" onclick="toggleTheme()" id="theme-toggle" title="Tukar Tema">🌙</button>
+  <button class="float-btn top-btn" id="scroll-top-btn" onclick="scrollToTop()" title="Ke Atas">⬆️</button>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header" id="site-header">
+  <div class="lego-strip top-strip">
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+  </div>
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="brick-logo" onclick="goHome()" style="cursor:pointer" title="Laman Utama">
+        <div class="brick-stud"></div><div class="brick-stud"></div>
+      </div>
+      <div>
+        <h1 class="site-title">MatikFun<span class="title-accent">!</span></h1>
+        <p class="site-subtitle">Matematik Tahun 5 — Wang &amp; Masa</p>
+      </div>
+    </div>
+
+    <!-- CLOCK -->
+    <div class="clock-widget">
+      <div class="clock-time" id="clock-time">00:00:00</div>
+      <div class="clock-date" id="clock-date">—</div>
+    </div>
+
+    <nav class="main-nav">
+      <button class="nav-btn active" data-section="nota"      onclick="showSection('nota')">📚 Nota</button>
+      <button class="nav-btn"        data-section="flashcard" onclick="showSection('flashcard')">🃏 Flashcard</button>
+      <button class="nav-btn"        data-section="permainan" onclick="showSection('permainan')">🎮 Permainan</button>
+      <button class="nav-btn"        data-section="kuiz"      onclick="showSection('kuiz')">🏆 Kuiz</button>
+    </nav>
+  </div>
+  <div class="lego-strip bottom-strip">
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+  </div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<main class="main-content" id="main-top">
+
+  <!-- ───── NOTA ───── -->
+  <section id="nota" class="content-section active">
+    <div class="section-heading">
+      <div class="brick-tag yellow">📚 NOTA</div>
+      <h2>Nota Pembelajaran</h2>
+      <p>Pilih topik yang ingin dipelajari!</p>
+    </div>
+    <div class="topic-tabs">
+      <button class="topic-tab active" onclick="showTopic('wang',this)">💰 Wang</button>
+      <button class="topic-tab"        onclick="showTopic('masa',this)">⏰ Masa &amp; Waktu</button>
+    </div>
+
+    <!-- WANG -->
+    <div id="topic-wang" class="topic-content active">
+
+      <div class="nota-card red">
+        <div class="nota-card-icon">💰</div>
+        <h3>3.1 Operasi Asas Wang — Tambah &amp; Tolak</h3>
+        <p>Wang Malaysia menggunakan <strong>Ringgit (RM)</strong> dan <strong>Sen</strong>.</p>
+        <p><strong>1 Ringgit Malaysia (RM 1) = 100 Sen</strong></p>
+        <div class="rule-box">
+          <strong>📌 Peraturan Penting:</strong>
+          <ul class="nota-list">
+            <li>Sentiasa <strong>jajarkan titik perpuluhan</strong> semasa mengira</li>
+            <li>Hasil tambah boleh melibatkan hingga <strong>tiga nilai wang</strong></li>
+            <li>Had kiraan: dalam lingkungan <strong>RM 1 000 000</strong></li>
+            <li>Tulis unit RM dan sen dengan betul: <strong>RM 12.50</strong> (bukan RM12.5)</li>
+          </ul>
+        </div>
+        <div class="example-box">
+          <p class="example-label">✏️ Contoh Tambah (3 nilai):</p>
+          <pre class="calc-display">  RM  245.50
+  RM  318.25
++ RM  106.00
+──────────────
+  RM  669.75  ✅</pre>
+        </div>
+        <div class="example-box">
+          <p class="example-label">✏️ Contoh Tolak:</p>
+          <pre class="calc-display">  RM  500.00
+- RM  123.60
+──────────────
+  RM  376.40  ✅</pre>
+        </div>
+        <div class="tip-box">💡 <strong>Tip:</strong> Jika sen tidak cukup, pinjam 1 ringgit = 100 sen daripada ringgit!</div>
+      </div>
+
+      <div class="nota-card blue">
+        <div class="nota-card-icon">✖️</div>
+        <h3>3.1 Operasi Asas Wang — Darab &amp; Bahagi</h3>
+        <div class="rule-box">
+          <strong>📌 Peraturan Darab Wang:</strong>
+          <ul class="nota-list">
+            <li>Wang boleh didarab dengan nombor hingga <strong>dua digit</strong>, 100, dan 1 000</li>
+            <li>Hasil darab dalam lingkungan <strong>RM 1 000 000</strong></li>
+            <li>Darab × 10 → alih titik perpuluhan <strong>1 tempat ke kanan</strong></li>
+            <li>Darab × 100 → alih titik perpuluhan <strong>2 tempat ke kanan</strong></li>
+            <li>Darab × 1 000 → alih titik perpuluhan <strong>3 tempat ke kanan</strong></li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="example-box">
+            <p class="example-label">✏️ Contoh Darab:</p>
+            <p>RM 25.50 × 4 = <span class="answer-highlight">RM 102.00</span></p>
+            <p>RM 12.00 × 100 = <span class="answer-highlight">RM 1 200.00</span></p>
+            <p>RM 5.00 × 1 000 = <span class="answer-highlight">RM 5 000.00</span></p>
+          </div>
+          <div class="example-box">
+            <p class="example-label">✏️ Contoh Bahagi:</p>
+            <p>RM 144.00 ÷ 12 = <span class="answer-highlight">RM 12.00</span></p>
+            <p>RM 5 000 ÷ 100 = <span class="answer-highlight">RM 50.00</span></p>
+            <p>RM 8 000 ÷ 1 000 = <span class="answer-highlight">RM 8.00</span></p>
+          </div>
+        </div>
+        <div class="tip-box">
+          💡 <strong>Tip Bahagi ÷ 100:</strong> Alihkan titik perpuluhan 2 tempat ke kiri!<br>
+          💡 <strong>Tip Bahagi ÷ 1000:</strong> Alihkan titik perpuluhan 3 tempat ke kiri!
+        </div>
+      </div>
+
+      <div class="nota-card green">
+        <div class="nota-card-icon">🔢</div>
+        <h3>3.2 Operasi Bergabung Wang</h3>
+        <div class="rule-box">
+          <strong>📌 Peraturan BODMAS:</strong>
+          <ul class="nota-list">
+            <li>Operasi bergabung melibatkan dua operasi berbeza dalam satu ayat matematik</li>
+            <li>Selesaikan dalam <strong>tanda kurung ( )</strong> dahulu</li>
+            <li>Kemudian selesaikan <strong>× atau ÷</strong></li>
+            <li>Akhir sekali selesaikan <strong>+ atau –</strong></li>
+          </ul>
+        </div>
+        <div class="steps-box">
+          <div class="step"><span class="step-num">1</span>Lihat tanda kurung ( ) — selesai dahulu</div>
+          <div class="step"><span class="step-num">2</span>Selesaikan × atau ÷ dari kiri ke kanan</div>
+          <div class="step"><span class="step-num">3</span>Selesaikan + atau – dari kiri ke kanan</div>
+        </div>
+        <div class="grid-2">
+          <div class="example-box">
+            <p class="example-label">✏️ Tambah dan Darab:</p>
+            <p>RM 50 + (RM 20 × 3)</p>
+            <p>= RM 50 + RM 60</p>
+            <p>= <span class="answer-highlight">RM 110</span></p>
+          </div>
+          <div class="example-box">
+            <p class="example-label">✏️ Tolak dan Bahagi:</p>
+            <p>(RM 100 – RM 40) ÷ 3</p>
+            <p>= RM 60 ÷ 3</p>
+            <p>= <span class="answer-highlight">RM 20</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nota-card yellow">
+        <div class="nota-card-icon">🏦</div>
+        <h3>3.3 Simpanan &amp; Pelaburan</h3>
+        <div class="grid-2">
+          <div class="info-pill blue-pill">
+            <h4>💰 Simpanan</h4>
+            <p>Wang yang <strong>disimpan</strong> di bank atau tabung untuk kegunaan masa depan.</p>
+            <p><strong>Contoh:</strong> Akaun Simpanan Bank, Tabung Haji, ASB</p>
+            <p>Simpanan mendapat <strong>faedah (bunga)</strong> dari masa ke masa.</p>
+          </div>
+          <div class="info-pill green-pill">
+            <h4>📈 Pelaburan</h4>
+            <p>Wang yang digunakan untuk mendapat <strong>lebih banyak wang</strong> pada masa depan.</p>
+            <p><strong>Contoh:</strong> Saham, unit amanah, hartanah</p>
+            <p>Pelaburan boleh mendapat <strong>dividen</strong> dan <strong>bonus</strong>.</p>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:1rem">
+          <div class="info-pill red-pill">
+            <h4>📊 Faedah Mudah (Simple Interest)</h4>
+            <p>Dikira berdasarkan <strong>jumlah asal (principal)</strong> sahaja.</p>
+            <p>Formula: <strong>Faedah = Principal × Kadar × Masa</strong></p>
+            <p>Contoh: RM 1 000 × 5% × 2 tahun = RM 100</p>
+          </div>
+          <div class="info-pill yellow-pill">
+            <h4>📊 Faedah Kompaun (Compound Interest)</h4>
+            <p>Dikira berdasarkan <strong>jumlah asal + faedah terkumpul</strong>.</p>
+            <p>Faedah bertambah atas faedah — lebih banyak wang!</p>
+            <p>🌟 Lebih menguntungkan dalam jangka panjang</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nota-card red">
+        <div class="nota-card-icon">💳</div>
+        <h3>3.4 Kredit &amp; Pengurusan Hutang</h3>
+        <div class="rule-box">
+          <strong>📌 Apa itu Kredit?</strong>
+          <ul class="nota-list">
+            <li>Kredit ialah <strong>kemudahan membeli barangan atau perkhidmatan tanpa membayar terus</strong></li>
+            <li>Pembeli <strong>berhutang</strong> dan perlu membayar balik kemudian</li>
+            <li>Contoh kredit: kad kredit, ansuran, pinjaman bank</li>
+            <li>Pembelian kredit dikenakan <strong>faedah</strong> → harga LEBIH MAHAL daripada tunai</li>
+          </ul>
+        </div>
+        <div class="example-box">
+          <p class="example-label">✏️ Perbandingan Harga Televisyen:</p>
+          <table class="mini-table">
+            <tr><th>Cara Beli</th><th>Pengiraan</th><th>Jumlah Bayar</th></tr>
+            <tr><td>Tunai 💵</td><td>Bayar terus</td><td><span class="answer-highlight">RM 1 500</span></td></tr>
+            <tr><td>Kredit 💳</td><td>RM 50 + (RM 150 × 12 bulan)</td><td><span class="answer-highlight">RM 1 850</span></td></tr>
+          </table>
+          <p style="color:var(--clr-red);font-weight:700;margin-top:.5rem">⚠️ Kredit lebih mahal RM 350!</p>
+        </div>
+        <div class="tip-box">💡 <strong>Tip Bijak:</strong> Bayar dengan tunai jika mampu. Jika guna kad kredit, bayar penuh setiap bulan!</div>
+      </div>
+
+      <div class="nota-card green">
+        <div class="nota-card-icon">🎯</div>
+        <h3>3.5 Penyelesaian Masalah Wang — Model Polya</h3>
+        <div class="polya-steps">
+          <div class="polya-step" style="background:var(--clr-red)">
+            <div class="polya-num">1</div>
+            <div><strong>FAHAM MASALAH</strong><br>Baca soalan 2–3 kali. Kenal pasti maklumat yang <em>diberi</em> dan <em>ditanya</em>.</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-blue)">
+            <div class="polya-num">2</div>
+            <div><strong>RANCANG STRATEGI</strong><br>Pilih operasi: +, –, ×, ÷? Lukis gambar rajah jika perlu.</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-green)">
+            <div class="polya-num">3</div>
+            <div><strong>LAKSANA STRATEGI</strong><br>Kira dengan langkah yang jelas. Tunjukkan semua kerja pengiraan.</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-yellow);color:#333">
+            <div class="polya-num" style="background:#333;color:var(--clr-yellow)">4</div>
+            <div><strong>SEMAK JAWAPAN</strong><br>Adakah jawapan munasabah? Semak semula dengan kaedah lain.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end topic-wang -->
+
+    <!-- MASA -->
+    <div id="topic-masa" class="topic-content">
+
+      <div class="nota-card blue">
+        <div class="nota-card-icon">📅</div>
+        <h3>4.1 Tempoh Masa &amp; Unit Masa</h3>
+        <div class="rule-box">
+          <strong>📌 Unit Masa yang Perlu Diingat:</strong>
+        </div>
+        <div class="conversion-grid">
+          <div class="conv-card"><span class="conv-from">1 minit</span><span class="conv-arrow">→</span><span class="conv-to">60 saat</span></div>
+          <div class="conv-card"><span class="conv-from">1 jam</span><span class="conv-arrow">→</span><span class="conv-to">60 minit</span></div>
+          <div class="conv-card"><span class="conv-from">1 hari</span><span class="conv-arrow">→</span><span class="conv-to">24 jam</span></div>
+          <div class="conv-card"><span class="conv-from">1 minggu</span><span class="conv-arrow">→</span><span class="conv-to">7 hari</span></div>
+          <div class="conv-card"><span class="conv-from">1 bulan</span><span class="conv-arrow">→</span><span class="conv-to">30 / 31 hari</span></div>
+          <div class="conv-card"><span class="conv-from">1 tahun</span><span class="conv-arrow">→</span><span class="conv-to">12 bulan / 365 hari</span></div>
+          <div class="conv-card"><span class="conv-from">1 dekad</span><span class="conv-arrow">→</span><span class="conv-to">10 tahun</span></div>
+          <div class="conv-card"><span class="conv-from">1 abad</span><span class="conv-arrow">→</span><span class="conv-to">10 dekad / 100 tahun</span></div>
+        </div>
+        <div class="info-pill red-pill" style="margin-top:.8rem">
+          <h4>🌟 Tahun Lompat (Leap Year)</h4>
+          <p>Berlaku setiap <strong>4 tahun</strong> sekali. Bulan Februari ada <strong>29 hari</strong> (biasanya 28 hari). Jumlah hari setahun = <strong>366 hari</strong>. Contoh tahun lompat: 2020, 2024, 2028, 2032...</p>
+        </div>
+      </div>
+
+      <div class="nota-card green">
+        <div class="nota-card-icon">🔄</div>
+        <h3>4.2 Penukaran Unit Masa — Pecahan &amp; Perpuluhan</h3>
+        <div class="rule-box">
+          <strong>📌 Cara Menukar Unit:</strong>
+          <ul class="nota-list">
+            <li>Unit BESAR → unit KECIL: <strong>DARAB</strong> dengan nilai penukaran</li>
+            <li>Unit KECIL → unit BESAR: <strong>BAHAGI</strong> dengan nilai penukaran</li>
+            <li>Jawapan mesti dalam <strong>nombor bulat</strong></li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="example-box">
+            <p class="example-label">✏️ Penukaran Pecahan:</p>
+            <p>½ jam = ½ × 60 = <span class="answer-highlight">30 minit</span></p>
+            <p>¼ hari = ¼ × 24 = <span class="answer-highlight">6 jam</span></p>
+            <p>¾ jam = ¾ × 60 = <span class="answer-highlight">45 minit</span></p>
+            <p>⅓ tahun = ⅓ × 12 = <span class="answer-highlight">4 bulan</span></p>
+          </div>
+          <div class="example-box">
+            <p class="example-label">✏️ Penukaran Perpuluhan:</p>
+            <p>0.5 jam = 0.5 × 60 = <span class="answer-highlight">30 minit</span></p>
+            <p>0.25 hari = 0.25 × 24 = <span class="answer-highlight">6 jam</span></p>
+            <p>0.5 tahun = 0.5 × 12 = <span class="answer-highlight">6 bulan</span></p>
+            <p>2.5 dekad = 2.5 × 10 = <span class="answer-highlight">25 tahun</span></p>
+          </div>
+        </div>
+        <div class="tip-box">💡 <strong>Ingat:</strong> ½ = 0.5 | ¼ = 0.25 | ¾ = 0.75 | ⅓ ≈ 0.33</div>
+      </div>
+
+      <div class="nota-card yellow">
+        <div class="nota-card-icon">➕</div>
+        <h3>4.3 Operasi Tambah &amp; Tolak Masa</h3>
+        <div class="rule-box">
+          <strong>📌 Cara Tambah/Tolak Masa:</strong>
+          <ul class="nota-list">
+            <li>Kira unit kecil dahulu (minit, jam, hari, bulan)</li>
+            <li>Jika unit kecil <strong>melebihi had</strong>, tukar ke unit lebih besar (60 minit = 1 jam)</li>
+            <li>Jika unit kecil <strong>tidak cukup untuk ditolak</strong>, pinjam dari unit lebih besar</li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="example-box">
+            <p class="example-label">✏️ Tambah Masa (dengan penukaran):</p>
+            <pre class="calc-display">  2 jam 45 minit
++ 1 jam 30 minit
+= 3 jam 75 minit
+= 4 jam 15 minit ✅
+(75 min → 1j 15min)</pre>
+          </div>
+          <div class="example-box">
+            <p class="example-label">✏️ Tolak Masa (dengan pinjam):</p>
+            <pre class="calc-display">  3 jam 10 minit
+- 1 jam 45 minit
+Pinjam: 3j → 2j 70min
+  2 jam 70 minit
+- 1 jam 45 minit
+= 1 jam 25 minit ✅</pre>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:.8rem">
+          <div class="example-box">
+            <p class="example-label">✏️ Tambah Tahun &amp; Bulan:</p>
+            <pre class="calc-display">  1 tahun  8 bulan
++ 2 tahun  7 bulan
+= 3 tahun 15 bulan
+= 4 tahun  3 bulan ✅</pre>
+          </div>
+          <div class="example-box">
+            <p class="example-label">✏️ Tolak Hari &amp; Jam:</p>
+            <pre class="calc-display">  5 hari  6 jam
+- 2 hari 14 jam
+Pinjam 1 hari = 24j
+  4 hari 30 jam
+- 2 hari 14 jam
+= 2 hari 16 jam ✅</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="nota-card red">
+        <div class="nota-card-icon">🎯</div>
+        <h3>4.4 Penyelesaian Masalah Masa — Model Polya</h3>
+        <div class="example-box">
+          <p class="example-label">✏️ Contoh Soalan Penyelesaian Masalah:</p>
+          <p><em>Ahmad mula belajar pada pukul 8:30 pagi. Dia belajar selama 2 jam 45 minit. Pukul berapakah Ahmad selesai belajar?</em></p>
+        </div>
+        <div class="polya-steps">
+          <div class="polya-step" style="background:var(--clr-red)">
+            <div class="polya-num">1</div>
+            <div><strong>Faham:</strong> Mula = 8:30 pagi. Tempoh = 2 jam 45 minit. Cari: masa selesai.</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-blue)">
+            <div class="polya-num">2</div>
+            <div><strong>Rancang:</strong> Tambah masa mula dengan tempoh belajar.</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-green)">
+            <div class="polya-num">3</div>
+            <div><strong>Buat:</strong> 8:30 + 2j 45min = 11:15 pagi</div>
+          </div>
+          <div class="polya-step" style="background:var(--clr-yellow);color:#333">
+            <div class="polya-num" style="background:#333;color:var(--clr-yellow)">4</div>
+            <div><strong>Semak:</strong> 11:15 – 8:30 = 2j 45min ✅ Betul!</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end topic-masa -->
+  </section>
+
+  <!-- ───── FLASHCARD ───── -->
+  <section id="flashcard" class="content-section">
+    <div class="section-heading">
+      <div class="brick-tag blue">🃏 FLASHCARD</div>
+      <h2>Kad Imbas Pembelajaran</h2>
+      <p>Baca nota di hadapan, klik kad untuk lihat huraian penuh!</p>
+    </div>
+    <div class="flashcard-controls">
+      <button class="topic-tab active" onclick="setFlashDeck('wang',this)">💰 Wang</button>
+      <button class="topic-tab"        onclick="setFlashDeck('masa',this)">⏰ Masa</button>
+    </div>
+    <div class="flashcard-meta">
+      <span class="fc-deck-label" id="fc-deck-label">💰 Topik: Wang</span>
+      <span class="fc-counter">Kad <span id="fc-current">1</span> / <span id="fc-total">1</span></span>
+    </div>
+    <div class="flashcard-arena">
+      <div class="flashcard" id="flashcard-el" onclick="flipCard()">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <div class="fc-side-label">📖 NOTA &amp; SOALAN</div>
+            <div class="fc-content" id="fc-front-content">Memuatkan...</div>
+            <span class="fc-hint">👆 Klik untuk lihat huraian penuh</span>
+          </div>
+          <div class="flashcard-back">
+            <div class="fc-side-label">✅ HURAIAN &amp; JAWAPAN</div>
+            <div class="fc-content" id="fc-back-content">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flashcard-nav">
+      <button class="btn-lego btn-red"   onclick="prevCard()">◀ Sebelum</button>
+      <button class="btn-lego btn-yellow" onclick="shuffleCards()">🔀 Kocok</button>
+      <button class="btn-lego btn-green"  onclick="nextCard()">Seterus ▶</button>
+    </div>
+  </section>
+
+  <!-- ───── PERMAINAN ───── -->
+  <section id="permainan" class="content-section">
+    <div class="section-heading">
+      <div class="brick-tag green">🎮 PERMAINAN</div>
+      <h2>Arena Permainan!</h2>
+      <p>Pilih permainan dan tunjukkan kehebatan kamu!</p>
+    </div>
+
+    <div id="game-menu" class="game-grid">
+      <div class="game-card" onclick="launchGame('masalah')">
+        <div class="game-icon">🧩</div>
+        <h3>Penyelesaian Masalah</h3>
+        <p>Selesaikan masalah kehidupan sebenar dengan Model Polya!</p>
+        <div class="game-badge green-badge">Mudah → Susah</div>
+      </div>
+      <div class="game-card" onclick="launchGame('bom')">
+        <div class="game-icon">💣</div>
+        <h3>Bom Masa</h3>
+        <p>Jawab sebelum bom meletup! Masa terhad 10 saat!</p>
+        <div class="game-badge red-badge">Masa Terhad</div>
+      </div>
+      <div class="game-card" onclick="launchGame('tangkap')">
+        <div class="game-icon">🪣</div>
+        <h3>Tangkap Jawapan</h3>
+        <p>Gerakkan bakul untuk tangkap jawapan yang jatuh!</p>
+        <div class="game-badge blue-badge">Refleks Pantas</div>
+      </div>
+      <div class="game-card" onclick="launchGame('susun')">
+        <div class="game-icon">🧲</div>
+        <h3>Susun &amp; Padankan</h3>
+        <p>Padankan soalan dengan jawapan yang betul!</p>
+        <div class="game-badge yellow-badge">Uji Minda</div>
+      </div>
+    </div>
+
+    <!-- GAME: MASALAH -->
+    <div id="game-masalah" class="game-arena hidden">
+      <div class="game-header">
+        <button class="btn-back" onclick="backToMenu()">← Menu</button>
+        <h3>🧩 Penyelesaian Masalah</h3>
+        <div class="game-score-box">Markah: <span id="pm-score">0</span></div>
+      </div>
+      <div class="pm-container">
+        <div class="pm-level-badge" id="pm-level-badge">Tahap 1</div>
+        <div class="pm-question-box"><p id="pm-question">Memuatkan soalan...</p></div>
+        <div class="pm-polya">
+          <div class="polya-mini"><span>1️⃣ Apa yang diberi?</span><input type="text" id="pm-given" placeholder="Tulis maklumat yang diberi..."></div>
+          <div class="polya-mini"><span>2️⃣ Apa yang ditanya?</span><input type="text" id="pm-asked" placeholder="Tulis apa yang perlu dicari..."></div>
+          <div class="polya-mini"><span>3️⃣ Jawapan saya:</span><input type="text" id="pm-answer" placeholder="Masukkan jawapan (cth: RM 120.50)"></div>
+        </div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <button class="btn-lego btn-green" onclick="checkPM()">✅ Semak Jawapan</button>
+          <button class="btn-lego btn-blue"  onclick="nextPM()">Soalan Seterus →</button>
+        </div>
+        <div id="pm-feedback" class="feedback-box hidden"></div>
+      </div>
+    </div>
+
+    <!-- GAME: BOM -->
+    <div id="game-bom" class="game-arena hidden">
+      <div class="game-header">
+        <button class="btn-back" onclick="backToMenu()">← Menu</button>
+        <h3>💣 Bom Masa</h3>
+        <div class="game-score-box">Markah: <span id="bom-score">0</span></div>
+      </div>
+      <div class="bom-container">
+        <div class="bom-timer-ring">
+          <svg class="timer-svg" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" class="timer-bg"/>
+            <circle cx="60" cy="60" r="50" class="timer-fill" id="timer-circle"/>
+          </svg>
+          <div class="timer-text" id="bom-time">10</div>
+          <div class="bom-emoji" id="bom-emoji">💣</div>
+        </div>
+        <p class="bom-question" id="bom-question">Sedia?</p>
+        <div class="bom-options" id="bom-options"></div>
+        <div id="bom-feedback" class="feedback-box hidden"></div>
+        <div id="bom-start-screen">
+          <p>Jawab soalan sebelum bom meletup! Kamu ada <strong>10 saat</strong> untuk setiap soalan.</p>
+          <button class="btn-lego btn-red" onclick="startBom()">🚀 Mula!</button>
+        </div>
+        <div id="bom-result" class="hidden bom-result-box"></div>
+      </div>
+    </div>
+
+    <!-- GAME: TANGKAP -->
+    <div id="game-tangkap" class="game-arena hidden">
+      <div class="game-header">
+        <button class="btn-back" onclick="backToMenu()">← Menu</button>
+        <h3>🪣 Tangkap Jawapan</h3>
+        <div class="game-score-box">Markah: <span id="tk-score">0</span> | Nyawa: <span id="tk-lives">❤️❤️❤️</span></div>
+      </div>
+      <div class="tangkap-container">
+        <div id="tk-start-screen">
+          <div class="tk-instruction">
+            <p>Soalan akan muncul di atas. Jawapan jatuh dari langit!</p>
+            <p>Gerakkan bakul untuk tangkap jawapan yang <strong>BETUL</strong>!</p>
+            <p>Gunakan kekunci <kbd>←</kbd> <kbd>→</kbd> atau tahan butang di bawah.</p>
+          </div>
+          <button class="btn-lego btn-blue" onclick="startTangkap()">🚀 Mula!</button>
+        </div>
+        <div id="tk-game-area" class="hidden">
+          <div class="tk-question-bar" id="tk-question-display">Soalan muncul di sini</div>
+          <div class="tk-arena" id="tk-arena"><div class="tk-basket" id="tk-basket">🪣</div></div>
+          <div class="tk-controls">
+            <button class="tk-ctrl-btn" id="tk-left-btn">◀</button>
+            <button class="tk-ctrl-btn" id="tk-right-btn">▶</button>
+          </div>
+        </div>
+        <div id="tk-result" class="hidden bom-result-box"></div>
+      </div>
+    </div>
+
+    <!-- GAME: SUSUN -->
+    <div id="game-susun" class="game-arena hidden">
+      <div class="game-header">
+        <button class="btn-back" onclick="backToMenu()">← Menu</button>
+        <h3>🧲 Susun &amp; Padankan</h3>
+        <div class="game-score-box">Markah: <span id="sp-score">0</span></div>
+      </div>
+      <div class="susun-container">
+        <div id="sp-round-info" class="sp-round">Pusingan <span id="sp-round">1</span> daripada 5</div>
+        <div class="sp-columns">
+          <div class="sp-col"><h4>📋 Soalan</h4><div id="sp-questions-col"></div></div>
+          <div class="sp-col"><h4>💡 Jawapan</h4><div id="sp-answers-col"></div></div>
+        </div>
+        <div id="sp-feedback" class="feedback-box hidden"></div>
+        <button class="btn-lego btn-blue" onclick="checkSusun()">✅ Semak</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── KUIZ ───── -->
+  <section id="kuiz" class="content-section">
+    <div class="section-heading">
+      <div class="brick-tag red">🏆 KUIZ</div>
+      <h2>Ujian Pengetahuan</h2>
+      <p>Uji diri kamu! Markah direkod secara automatik.</p>
+    </div>
+    <div id="kuiz-setup" class="kuiz-setup-box">
+      <div class="kuiz-setup-icon">🏆</div>
+      <h3>Sedia Untuk Kuiz?</h3>
+      <div class="kuiz-form">
+        <label>Nama Kamu:</label>
+        <input type="text" id="kuiz-name" placeholder="Masukkan nama kamu..." class="kuiz-input"/>
+        <label>Kelas:</label>
+        <input type="text" id="kuiz-class" placeholder="cth: 5 Amanah" class="kuiz-input"/>
+        <label>Topik:</label>
+        <select id="kuiz-topic" class="kuiz-input">
+          <option value="all">Semua Topik (Wang + Masa)</option>
+          <option value="wang">Wang Sahaja</option>
+          <option value="masa">Masa &amp; Waktu Sahaja</option>
+        </select>
+      </div>
+      <button class="btn-lego btn-red" onclick="startKuiz()">🚀 Mulakan Kuiz!</button>
+    </div>
+    <div id="kuiz-area" class="hidden">
+      <div class="kuiz-progress-bar"><div class="kuiz-progress-inner" id="kuiz-progress-inner"></div></div>
+      <div class="kuiz-status">
+        Soalan <span id="kuiz-q-num">1</span> / <span id="kuiz-q-total">20</span>
+        &nbsp;|&nbsp; Markah: <span id="kuiz-current-score">0</span>
+        &nbsp;|&nbsp; ⏱ <span id="kuiz-timer">60</span>s
+      </div>
+      <div class="kuiz-question-box"><p id="kuiz-question">Memuatkan...</p></div>
+      <div class="kuiz-options" id="kuiz-options"></div>
+      <div id="kuiz-feedback" class="feedback-box hidden"></div>
+      <button class="btn-lego btn-blue hidden" id="kuiz-next-btn" onclick="nextKuizQ()">Seterus →</button>
+    </div>
+    <div id="kuiz-result" class="hidden kuiz-result-box">
+      <div class="result-trophy">🏆</div>
+      <h3 id="result-name">Tahniah!</h3>
+      <div class="result-score-big" id="result-score-display"></div>
+      <div class="result-grade" id="result-grade"></div>
+      <p id="result-summary"></p>
+      <button class="btn-lego btn-green"  onclick="downloadRecord()">⬇️ Muat Turun Rekod</button>
+      <button class="btn-lego btn-blue"   onclick="showLeaderboard()">🏅 Papan Markah</button>
+      <button class="btn-lego btn-yellow" onclick="resetKuiz()">🔄 Cuba Lagi</button>
+    </div>
+    <div id="leaderboard-box" class="hidden">
+      <h3>🏅 Papan Markah Terbaik</h3>
+      <div id="leaderboard-list"></div>
+      <button class="btn-lego btn-red"  onclick="clearLeaderboard()">🗑️ Padam Semua</button>
+      <button class="btn-lego btn-blue" onclick="document.getElementById('leaderboard-box').classList.add('hidden')">Tutup</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="lego-strip top-strip">
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+    <span class="stud"></span><span class="stud"></span><span class="stud"></span>
+  </div>
+  <p>MatikFun! © 2025 &mdash; Matematik Tahun 5 KSSR Semakan &middot; Dibina untuk murid 9&ndash;11 tahun</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
